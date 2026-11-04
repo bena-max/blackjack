@@ -25,9 +25,14 @@ public class Blackjack
         System.out.println("player has " + chips + " chips");
     Deck deck = new Deck();
 
-    System.out.println("how ,uch do you want to bet out of your balance?");
+    System.out.println("how much do you want to bet out of your balance?");
+        bet = Integer.parseInt(input.nextLine());
+    while(bet>chips || bet <= 0)
+    {
+        System.out.println("invalid bet try again");
+        bet = Integer.parseInt(input.nextLine());
+    }
 
-    bet = Integer.parseInt(input.nextLine());
     
 
 
