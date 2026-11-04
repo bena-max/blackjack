@@ -105,6 +105,14 @@ else
     System.out.println("Tieee!!");
 
 
+if(chips == 0)
+{
+    System.out.println("Broke boy get out of my game or give me more of your money");
+    again = "no";
+}
+
+else{
+
 
 
 System.out.println("do you want to play again? yes or no");
@@ -114,6 +122,8 @@ System.out.println("do you want to play again? yes or no");
         again = input.nextLine();
         if(again.equals("no"))
             System.out.println("Thank you for playing have a great day");
+
+}
             
 }
 
