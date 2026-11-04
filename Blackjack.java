@@ -136,11 +136,13 @@ class cards
 {
     private int value;
     private String suit;
+    
 
     public cards(int value, String suit)
     {
         this.value = value;
         this.suit = suit;
+
     }
 
      public int getValue() {
@@ -153,7 +155,26 @@ class cards
 
     public void printcard()
     {
-        System.out.println("your cards value is: " + this.value + " and your card suit is: " + this.suit);
+        String name = "";
+        if(this.value == 1)
+        {
+             name = "Ace";
+        }
+        else if(this.value == 11)
+        {
+             name = "Lilo/Messi";
+        }
+        else if(this.value == 12)
+        {
+             name = "Neta";
+        }
+        else if (this.value == 13)
+        {
+             name = "Ben";
+        }
+        else
+            name = "" + value;
+        System.out.println(name + " of " + this.suit);
     }
 }
 
