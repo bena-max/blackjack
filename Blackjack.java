@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
+import java.util.Scanner;
 
 
 public class Blackjack 
 {
     public static void main(String[] args)
 {
+    Scanner input = new Scanner(System.in);
     Deck deck = new Deck();
 
     //for (int i = 0; i < deck.getCardAmount(); i++)
@@ -16,17 +18,67 @@ public class Blackjack
     //}
 
     Hand player = new Hand();
+    Hand dealer = new Hand();
+
+    dealer.addCard(deck.dealCard());
 
     player.addCard(deck.dealCard());
+
+    dealer.addCard(deck.dealCard());
+
     player.addCard(deck.dealCard());
 
+    System.out.println("dealer card is:");
+    dealer.Hands.get(0).printcard();
+
+
+    System.out.println("Your cards are:");
    for (int i = 0; i < player.Hands.size(); i ++)
    {
     player.Hands.get(i).printcard();
    }
-
    System.out.println("Score: " + player.getScore());
+   System.out.println("Hit or stand?");
+   String choice = input.nextLine();
+   System.out.println("You chose: " + choice);
+   while (choice.equals("hit") && player.getScore() <= 21)
+   {
+    player.addCard(deck.dealCard());
+    System.out.println("Score: " + player.getScore());
+    choice = input.nextLine();
+    System.out.println("Hit or stand?");
+
+   }
+
+   
+
+   while(dealer.getScore()<17)
+   {
+     dealer.addCard(deck.dealCard());
+
+   }
+
+   System.out.println("New dealer Score is ; " + dealer.getScore());
+
+
+   if(player.getScore() > 21)
+    System.out.println("Bust!! You loose");
+
+else if(dealer.getScore() > 21)
+    System.out.println("Dealer Busted!!. You win!!");
+
+else if(player.getScore() > dealer.getScore())
+    System.out.println("You win!!");
+
+else if(dealer.getScore() > player.getScore())
+    System.out.println("You lose!!");
+
+else
+    System.out.println("Tieee!!");
 }
+
+
+
 }
 
 class cards
