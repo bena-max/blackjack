@@ -11,15 +11,25 @@ public class Blackjack
     Scanner input = new Scanner(System.in);
 
     String again = "yes";
+
+    int chips = 100;
+    int bet = 0;
+
+    
+    
+
     while(again.equals("yes"))
     {
+        
+
+        System.out.println("player has " + chips + " chips");
     Deck deck = new Deck();
 
-    //for (int i = 0; i < deck.getCardAmount(); i++)
-    //{
-      //  deck.deck.get(i).printcard();
-        //System.out.println();
-    //}
+    System.out.println("how ,uch do you want to bet out of your balance?");
+
+    bet = Integer.parseInt(input.nextLine());
+    
+
 
     Hand player = new Hand();
     Hand dealer = new Hand();
@@ -67,20 +77,29 @@ public class Blackjack
    System.out.println("New dealer Score is : " + dealer.getScore());
    }
 
-   if(player.getScore() > 21)
+   if(player.getScore() > 21){
     System.out.println("Bust!! You lose");
-
-else if(dealer.getScore() > 21)
+    chips -= bet;
+    }
+else if(dealer.getScore() > 21){
     System.out.println("Dealer Busted!!. You win!!");
+    chips+=bet;
+}
 
-else if(player.getScore() > dealer.getScore())
+else if(player.getScore() > dealer.getScore()){
     System.out.println("You win!!");
+    chips += bet;
+}
 
-else if(dealer.getScore() > player.getScore())
+else if(dealer.getScore() > player.getScore()){
     System.out.println("You lose!!");
+    chips -= bet;
+}
 
 else
     System.out.println("Tieee!!");
+
+
 
 
 System.out.println("do you want to play again? yes or no");
