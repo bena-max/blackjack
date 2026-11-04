@@ -51,18 +51,20 @@ public class Blackjack
    }
 
    
-
+   if(player.getScore() <= 21 )
+   {
    while(dealer.getScore()<17)
    {
      dealer.addCard(deck.dealCard());
 
    }
+    
 
-   System.out.println("New dealer Score is ; " + dealer.getScore());
-
+   System.out.println("New dealer Score is : " + dealer.getScore());
+   }
 
    if(player.getScore() > 21)
-    System.out.println("Bust!! You loose");
+    System.out.println("Bust!! You lose");
 
 else if(dealer.getScore() > 21)
     System.out.println("Dealer Busted!!. You win!!");
