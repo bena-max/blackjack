@@ -9,6 +9,10 @@ public class Blackjack
     public static void main(String[] args)
 {
     Scanner input = new Scanner(System.in);
+
+    String again = "yes";
+    while(again.equals("yes"))
+    {
     Deck deck = new Deck();
 
     //for (int i = 0; i < deck.getCardAmount(); i++)
@@ -77,9 +81,20 @@ else if(dealer.getScore() > player.getScore())
 
 else
     System.out.println("Tieee!!");
+
+
+System.out.println("do you want to play again? yes or no");
+
+        
+
+        again = input.nextLine();
+        if(again.equals("no"))
+            System.out.println("Thank you for playing have a great day");
+            
 }
 
-
+        
+}   
 
 }
 
